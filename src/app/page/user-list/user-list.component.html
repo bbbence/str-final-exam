@@ -5,16 +5,16 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Active</th>
+          <th class="clickable" (click)="setSorter('id')">#</th>
+          <th class="clickable" (click)="setSorter('name')">Name</th>
+          <th class="clickable" (click)="setSorter('email')">Email</th>
+          <th class="clickable" (click)="setSorter('address')">Address</th>
+          <th class="clickable" (click)="setSorter('active')">Active</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async | filter:filterPhrase:filterKey">
+        <tr *ngFor="let user of users$ | async | filter:filterPhrase:filterKey | sorter:sortby">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>

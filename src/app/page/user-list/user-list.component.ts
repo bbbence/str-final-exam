@@ -17,6 +17,8 @@ export class UserListComponent implements OnInit {
   filterPhrase: string = '';
   filterKey: string = 'name';
 
+  sortby: string = 'id';
+
   constructor(
     private userService: UserService,
   ) { }
@@ -32,6 +34,10 @@ export class UserListComponent implements OnInit {
   delete(): void {
     this.userService.remove(this.subscribeForDeleteItem)
       .subscribe(() => this.userService.getAll());
+  }
+
+  setSorter(param: string): void {
+    this.sortby = param;
   }
 
 }
