@@ -10,7 +10,8 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UserListComponent implements OnInit {
 
-  users$: Observable<User[]> = this.userService.getAll();
+
+  users$: Observable<User[]> = this.userService.userList$;
   subscribeForDeleteItem: User = new User();
 
 
